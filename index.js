@@ -41,12 +41,14 @@ app.get('/api/notes/:id',(req,res)=>{
 };
 
 app.post("/api/notes/:id",(req,res)=>{
-  res.
+  const note = req.body;
+  console.log(note);
+  res.json(note);
 
 })
 
 app.delete("/api/notes/:id",(req,res)=>{
-  res.params.id;
+  req.params.id;
   note = notes.filter(note=> note.id !== id);
   res.status(204).end();
 });
@@ -54,6 +56,6 @@ app.delete("/api/notes/:id",(req,res)=>{
 
 const PORT = 300;
 
-app.listen(PORT);
-console.log(`Server running on port ${PORT}`);
-
+app.listen(PORT,()=>{
+  console.log(`Server running on port ${PORT} Better Go Catch It!`);
+});});
