@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
 
 
 let notes = [
@@ -33,8 +34,23 @@ app.get('/api/notes', (req, res) => {
 app.get('/api/notes/:id',(req,res)=>{
   const id = req.params.id;
   const note = notes.find(note=> note.id === id);
-  res.json(note);
+  if(note){
+    res.json(note);
+}else{
+  res.status(404).end();
+};
+
+app.post("/api/notes/:id",(req,res)=>{
+  res.
+
+})
+
+app.delete("/api/notes/:id",(req,res)=>{
+  res.params.id;
+  note = notes.filter(note=> note.id !== id);
+  res.status(204).end();
 });
+
 
 const PORT = 300;
 
